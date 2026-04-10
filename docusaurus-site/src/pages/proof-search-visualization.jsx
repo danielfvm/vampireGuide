@@ -2,6 +2,7 @@
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 import Layout from '@theme/Layout';
 import ProofSearchCanvas from '../components/ProofSearchCanvas';
+import PageActions from '../components/PageActions';
 import styles from './proof-search-visualization.module.css';
 
 const EXAMPLES = {
@@ -121,6 +122,7 @@ fof(pel55,conjecture,
 const DEFAULT_PROBLEM = EXAMPLES.socrates;
 
 const DEFAULT_ARGS = '--manual_cs on --show_everything on --proof on --avatar off';
+const PROOF_SEARCH_EDIT_URL = 'https://github.com/vprover/vampireGuide/edit/main/docusaurus-site/src/pages/proof-search-visualization.jsx';
 
 const TAG_CLAUSE_RE = /^\s*\[(\w+)\]\s*([a-z_]+):\s*(\d+)\.\s*(.*)$/i;
 const SELECT_RE = /\bselected\s+clause\s+(\d+)/i;
@@ -1245,6 +1247,9 @@ export default function ProofSearchVisualization() {
               )}
             </div>
           </div>
+        </div>
+        <div className={styles.pageFooter}>
+          <PageActions editUrl={PROOF_SEARCH_EDIT_URL} className={styles.pageFooterActions} />
         </div>
       </div>
       {showHelp && (

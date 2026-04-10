@@ -1,0 +1,16 @@
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.reportIssue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.reportIssue :global(svg) {
+  flex-shrink: 0;
+}
