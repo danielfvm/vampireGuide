@@ -382,7 +382,7 @@ fof(b, conjecture, p).`,
         .vr-row{display:flex;gap:16px;align-items:stretch;flex-wrap:wrap}
         .vr-col{flex:1 1 320px;min-width:0}
         label{display:block;font-weight:600;margin:.5rem 0}
-        textarea{
+        .vr-args-input{
           width:100%;
           height:18rem;
           background:var(--vamp-prism-bg, var(--ifm-pre-background));
@@ -407,15 +407,16 @@ fof(b, conjecture, p).`,
       `}</style>
 
       <div className="vr-row">
-        <div className="vr-col" style={{ flex: 3 }}>
+        <div className="vr-col" style={{ flex: showArgs ? 3 : 1 }}>
           <label>TPTP problem (highlighted)</label>
           <LiveCode value={tptp} onChange={setTptp} className="language-tptp" />
         </div>
 
         {showArgs && (
-          <div className="vr-col" style={{ flex: 2 }}>
+          <div className="vr-col" style={{ flex: 1 }}>
             <label>Vampire command-line arguments</label>
             <textarea
+              className="vr-args-input"
               value={args}
               onChange={e => setArgs(e.target.value)}
               placeholder={`Example:\n  --proof on`}
